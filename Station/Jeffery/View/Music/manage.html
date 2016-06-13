@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+<link rel="stylesheet" type="text/css" href="__APP__/Public/css/music.css" />
+<script type="text/javascript" src="__APP__/Public/js/jquery-1.10.1.js"></script>
+<script type="text/javascript" src="__APP__/Public/js/style-table.js"></script>
+<script type="text/javascript">
+	function copyLink(id){
+		var e = "link-"+id;
+		var a=document.getElementById(e);//对象是contents 
+        a.select(); //选择对象 
+        document.execCommand("Copy"); //执行浏览器复制命令
+	}
+</script>
+</head>
+<body>
+<div id="header">音乐中转站>>管理音乐</div>
+<div id="content">
+	<table>
+		<thead>
+			<tr>
+				<th>歌曲</th>
+				<th>大小</th>
+				<th>链接</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<foreach name="musicInfo" item="v">
+			<tbody>
+				<tr>
+					<td>{$v.musicname}</td>
+					<td>{$v.size}</td>
+					<td><textarea id="link-{$v.id}" class="text-link">{$v.href}</textarea> <a href="{$v.href}" target="_blank">打开</a></td>
+					<td><a href="javascript:;" onclick="copyLink({$v.id})">复制链接</a>|<a href="javascript:;" onclick="if(confirm('您确定删除这条记录？')){location.href='__CONTROLLER__/delete/id/{$v.id}';}">删除</a></td>
+				</tr>
+			</tbody>
+		</foreach>
+		<tfoot>
+			<tr>
+				<td colspan="9" align="center">{$pageShow}</td>
+			</tr>
+		</tfoot>
+	</table>
+	<!-- <div id="page">{$pageShow}</div> -->
+</div>
+
+
+</body>
+</html>
+

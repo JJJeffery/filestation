@@ -1,0 +1,9 @@
+$(function(){
+	    $('#navigator-detail').hide();
+	    $('#navigator').mouseover(function(){
+	        $('#navigator-detail').show('fast');
+        })
+        $('#navigator').mouseleave(function(){
+	        $('#navigator-detail').hide();
+        })
+    })

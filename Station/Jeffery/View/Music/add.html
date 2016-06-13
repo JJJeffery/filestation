@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+<link rel="stylesheet" href="__APP__/Public/css/music.css" type="text/css" />
+<script type="text/javascript" src="__APP__/Public/js/jquery-1.10.1.js"></script>
+<script type="text/javascript" src="__APP__/Public/js/style-table.js"></script>
+</head>
+<body>
+<div id="header">音乐中转站>>上传音乐</div>
+<div id="content">
+<form action="__CONTROLLER__/addsave" method="post" enctype="multipart/form-data">
+	<table>
+		<tr>
+			<td class="title">选择音乐</td>
+			<td><input type="file" name="upload" id="" /></td>		
+		</tr>			
+		<tr>
+			<td colspan="2"><span class="comment">注意：音乐文件大小不得超过20M</span></td>
+		</tr>
+	</table>
+	<p><input id="button" type="submit" value="上传音乐" /></p>
+</form>
+</div>	
+</body>
+</html>

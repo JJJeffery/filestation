@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+<link rel="stylesheet" type="text/css" href="__APP__/Public/css/picture.css" />
+<script type="text/javascript">
+	function copyLink(id){
+		var e = "link-"+id;
+		var a=document.getElementById(e);//对象是contents 
+        a.select(); //选择对象 
+        document.execCommand("Copy"); //执行浏览器复制命令
+	}
+</script>
+</head>
+<body>
+<div id="header">图片中转站>>管理图片</div>
+<div id="content">
+	<foreach name='picInfo' item='v'>
+	
+	<div class="pic-box">
+		<div class="pic-img">
+		    <img src="__APP__/Uploads/Pictures/{$v.picsavename}" alt="" width="200" height="200"/>
+		</div>
+		<div class="pic-text">
+			<div class="pic-text-one"><span class="pic-title">名称：</span>{$v.picname}</div>
+			<div class="pic-text-two"><span class="pic-title">宽高：</span>{$v.wid_hei}</div>
+			<div class="pic-text-three"><span class="pic-title">大小：</span>{$v.size}</div>
+			<div><span class="pic-title">链接：</span></div>
+			<textarea class="link-info" id="link-{$v.id}">{$v.href}</textarea>
+		</div>
+		<div class="pic-link">
+			<div class="pic-link-one"><a href="{$v.href}" target="_blank" class="pic-button">打开</a></div>
+			<div class="pic-link-two"><a href="javascript:;" class="pic-button" onclick="copyLink({$v.id})">复制链接</a></div>
+			<div class="pic-link-three"><a href="javascript:;" class="pic-button" onclick="if(confirm('您确定删除这条记录？')){location.href='__CONTROLLER__/delete/id/{$v.id}';}">删除</a></div>
+		</div>
+		
+	</div>
+	</foreach>
+	<div id="page">{$pageShow}</div>
+</div>
+
+
+</body>
+</html>
+
