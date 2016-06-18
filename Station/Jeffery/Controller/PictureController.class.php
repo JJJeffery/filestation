@@ -12,6 +12,10 @@ class PictureController extends CommonController{
 		$this->display();
 	}
 	function addsave(){
+		$dir = "./Uploads/Pictures";
+		if(!file_exists($dir)){
+            mkdir($dir,0777);
+        }
 		// 图片上传
 	    $upload = new \Think\Upload();// 实例化上传类
         $upload->maxSize = 10485760;// 设置附件上传大小 10M
@@ -32,7 +36,7 @@ class PictureController extends CommonController{
             $_POST['picsavename']=$info['upload']['savename'];
             $_POST['size']=fileSizeConv($info['upload']['size']);
             $_POST['wid_hei']=$picinfo[0].'*'.$picinfo[1];
-            $_POST['href']='http://'.$_SERVER['HTTP_HOST'].'/Filestation/Uploads/Pictures/'.$info['upload']['savename'];
+            $_POST['href']='http://'.$_SERVER['HTTP_HOST'].'/filestation/Uploads/Pictures/'.$info['upload']['savename'];
             $re=$this->picOb->addPics($_POST);
         	if($re){
         	    $this->success($picmsg,U('Picture/manage'));

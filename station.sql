@@ -37,7 +37,9 @@ CREATE TABLE `fs_admin` (
 
 LOCK TABLES `fs_admin` WRITE;
 /*!40000 ALTER TABLE `fs_admin` DISABLE KEYS */;
-INSERT INTO `fs_admin` VALUES (1,'653bc87ec4fdcd6e29942d0206ceb9f0','9c011d21e607e6991c87210a830c0edf','jeffery@linsanity.cc');
+INSERT INTO `fs_admin` VALUES 
+(1,'653bc87ec4fdcd6e29942d0206ceb9f0','9c011d21e607e6991c87210a830c0edf','jeffery@linsanity.cc'),
+(2,'70d94828ad8ea394cec947a54366e0d4','624775d43aab941574c240a85fdfd354','heacheuy@live.cn');
 /*!40000 ALTER TABLE `fs_admin` ENABLE KEYS */;
 UNLOCK TABLES;
 

@@ -12,6 +12,10 @@ class MusicController extends CommonController{
 		$this->display();
 	}
 	function addsave(){
+		$dir = "./Uploads/Musics";
+		if(!file_exists($dir)){
+            mkdir($dir,0777);
+        }
 		// 音乐上传
 	    $upload = new \Think\Upload();// 实例化上传类
         $upload->maxSize = 10485760;// 设置附件上传大小 10M
