@@ -36,7 +36,16 @@ class PictureController extends CommonController{
             $_POST['picsavename']=$info['upload']['savename'];
             $_POST['size']=fileSizeConv($info['upload']['size']);
             $_POST['wid_hei']=$picinfo[0].'*'.$picinfo[1];
-            $_POST['href']='http://'.$_SERVER['HTTP_HOST'].'/filestation/Uploads/Pictures/'.$info['upload']['savename'];
+
+            // 判断URL中是否包含项目名称
+            $url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+            if(preg_match("/filestation/i", $url)){
+            	$href = 'http://'.$_SERVER['HTTP_HOST'].'/filestation/Uploads/Pictures/'.$info['upload']['savename'];
+            }else{
+            	$href = 'http://'.$_SERVER['HTTP_HOST'].'/Uploads/Pictures/'.$info['upload']['savename'];
+            }
+            $_POST['href'] = $href;
+
             $re=$this->picOb->addPics($_POST);
         	if($re){
         	    $this->success($picmsg,U('Picture/manage'));

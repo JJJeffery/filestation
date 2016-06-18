@@ -33,7 +33,16 @@ class MusicController extends CommonController{
             $_POST['musicname']=$musicname;
             $_POST['musicsavename']=$info['upload']['savename'];
             $_POST['size']=fileSizeConv($info['upload']['size']);
-            $_POST['href']='http://'.$_SERVER['HTTP_HOST'].'/filestation/Uploads/Musics/'.$info['upload']['savename'];
+
+            // 判断URL中是否包含项目名称
+            $url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+            if(preg_match("/filestation/i", $url)){
+            	$href = 'http://'.$_SERVER['HTTP_HOST'].'/filestation/Uploads/Musics/'.$info['upload']['savename'];
+            }else{
+            	$href = 'http://'.$_SERVER['HTTP_HOST'].'/Uploads/Musics/'.$info['upload']['savename'];
+            }
+            $_POST['href'] = $href;
+
             // var_dump($_POST);die;
             $re=$this->muOb->addMusics($_POST);
         	if($re){
