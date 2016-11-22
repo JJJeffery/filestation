@@ -18,7 +18,7 @@ class MusicController extends CommonController{
         }
 		// 音乐上传
 	    $upload = new \Think\Upload();// 实例化上传类
-        $upload->maxSize = 10485760;// 设置附件上传大小 10M
+        $upload->maxSize = 20971520;// 设置附件上传大小 20M
         $upload->exts = array('mp3','wav','wma','ogg','ape','acc','cda','midi','flac','aac');// 设置附件上传类型
         $upload->rootPath = './Uploads/Musics/'; // 设置附件上传根目录
         $upload->saveName = md5(uniqid(md5(microtime(true)),true)); // 保存的文件名
