@@ -58,7 +58,7 @@ class MusicController extends CommonController{
 	function manage(){
 		// 实现分页
 		// 获取总记录数
-		$count=$this->muOb->getListCount();
+		$count=$this->muOb->getListCount('');
 		$pageSize=13;
 		// 实例化分页类
 		$Page=new \Think\Page($count,$pageSize);

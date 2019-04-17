@@ -61,7 +61,7 @@ class PictureController extends CommonController{
 	function manage(){
 		// 实现分页
 		// 获取总记录数
-		$count=$this->picOb->getListCount();
+		$count=$this->picOb->getListCount('');
 		$pageSize=5;
 		// 实例化分页类
 		$Page=new \Think\Page($count,$pageSize);
